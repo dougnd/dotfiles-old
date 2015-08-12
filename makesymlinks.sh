@@ -8,6 +8,7 @@
 
 dir=~/etc/dotfiles                    # dotfiles directory
 olddir=~/etc/dotfiles_old             # old dotfiles backup directory
+vundleDir=~/.vim/bundle/Vundle.vim
 files="vimrc"    # list of files/folders to symlink in homedir
 
 ##########
@@ -22,6 +23,15 @@ echo -n "Changing to the $dir directory ..."
 cd $dir
 echo "done"
 
+# install vundle
+if [ -d "$vundleDir" ]; then
+	cd "$vundleDir"
+	git pull origin master
+	cd -
+else
+	git clone https://github.com/VundleVim/Vundle.vim.git "$vundleDir"
+fi
+
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
@@ -29,3 +39,4 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
