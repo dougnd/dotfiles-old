@@ -46,6 +46,12 @@ set background=dark
 colorscheme solarized
 
 nnoremap <F5> :GundoToggle<CR>
+nnoremap <F4> :NERDTreeToggle<CR>
+
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 " let g:syntastic_cpp_compiler_options = ' -std=gnu++0x -I build -DPROJECT_DIR=\"~/Documents/research/pss-research\" '
 "let g:syntastic_cpp_compiler_options = ' -std=gnu++0x -I build -I ~/Documents/research/vehicleTracking/src -DPROJECT_DIR=\"~/Documents/research/pss-research\" '
