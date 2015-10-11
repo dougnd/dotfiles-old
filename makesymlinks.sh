@@ -6,8 +6,8 @@
 
 ########## Variables
 
-dir=~/etc/dotfiles                    # dotfiles directory
-olddir=~/etc/dotfiles_old             # old dotfiles backup directory
+dir=${PWD}
+olddir=${PWD}/old
 vundleDir=~/.vim/bundle/Vundle.vim
 files="vimrc"    # list of files/folders to symlink in homedir
 
@@ -19,9 +19,9 @@ mkdir -p $olddir
 echo "done"
 
 # change to the dotfiles directory
-echo -n "Changing to the $dir directory ..."
-cd $dir
-echo "done"
+#echo -n "Changing to the $dir directory ..."
+#cd $dir
+#echo "done"
 
 # install vundle
 if [ -d "$vundleDir" ]; then
@@ -39,4 +39,8 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+
+# update vundle:
+vim +PluginInstall +qall
 
