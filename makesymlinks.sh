@@ -9,7 +9,7 @@
 dir=${PWD}
 olddir=${PWD}/old
 vundleDir=~/.vim/bundle/Vundle.vim
-files="vimrc"    # list of files/folders to symlink in homedir
+files="vimrc minttyrc"    # list of files/folders to symlink in homedir
 
 ##########
 
